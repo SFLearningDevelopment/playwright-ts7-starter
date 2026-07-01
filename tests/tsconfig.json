@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["node"],
+
+    // Playwright honours: allowJs, baseUrl, paths, references.
+    // Note: TypeScript 7 deprecates `baseUrl`, so we use `paths` WITHOUT it —
+    // modern TypeScript resolves paths relative to this tsconfig's location.
+    "paths": {
+      "@pages/*": ["./pages/*"]
+    }
+  },
+  "include": ["**/*.ts"]
+}
