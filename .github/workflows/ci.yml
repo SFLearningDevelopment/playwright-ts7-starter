@@ -19,7 +19,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Step 1 — the type-check gate. Playwright does NOT type-check specs,
       # so this separate step catches type errors fast, before any browser runs.
