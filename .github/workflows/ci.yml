@@ -23,8 +23,9 @@ jobs:
 
       # Step 1 — the type-check gate. Playwright does NOT type-check specs,
       # so this separate step catches type errors fast, before any browser runs.
-      - name: Type-check (tsc --noEmit)
-        run: npx tsc -p tests/tsconfig.json --noEmit
+      # The native preview compiler's binary is `tsgo` (not `tsc`) on preview builds.
+      - name: Type-check (tsgo --noEmit)
+        run: npx tsgo -p tests/tsconfig.json --noEmit
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
