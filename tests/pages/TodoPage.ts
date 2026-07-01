@@ -3,7 +3,7 @@ import { type Page, type Locator, expect } from '@playwright/test';
 /**
  * A typed page object for the TodoMVC demo app.
  * Wraps the page's locators and actions so specs read cleanly and
- * the type-checker (tsc --noEmit) can catch misuse before any browser runs.
+ * the type-checker (tsgo --noEmit) can catch misuse before any browser runs.
  */
 export class TodoPage {
   readonly page: Page;
@@ -17,7 +17,10 @@ export class TodoPage {
   }
 
   async goto(): Promise<void> {
-    await this.page.goto('/');
+    // TodoMVC is a hash-routed SPA; navigate to the app route explicitly,
+    // then wait for the input to be visible before interacting.
+    await this.page.goto('/todomvc/#/');
+    await this.newTodoInput.waitFor({ state: 'visible' });
   }
 
   async add(text: string): Promise<void> {
