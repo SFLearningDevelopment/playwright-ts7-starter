@@ -4,9 +4,9 @@
   "description": "A tiny Playwright + TypeScript 7 starter for the SF Certified TypeScript 7 for Playwright course. Demonstrates the type-check gate, typed page objects and fixtures, and a CI pipeline that type-checks before running tests.",
   "private": true,
   "scripts": {
-    "pretest": "tsc -p tests/tsconfig.json --noEmit",
+    "pretest": "tsgo -p tests/tsconfig.json --noEmit",
     "test": "playwright test",
-    "typecheck": "tsc -p tests/tsconfig.json --noEmit"
+    "typecheck": "tsgo -p tests/tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.0",
